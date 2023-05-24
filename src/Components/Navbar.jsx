@@ -4,13 +4,14 @@ import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     const cart = useSelector((state) => state.cart);
+    const wishlist = useSelector((state) => state.wishlist);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
     };
     return (
-        <nav className="bg-white w-full border-gray-200 dark:bg-gray-900 fixed shadow-md">
+        <nav className="bg-white w-full border-gray-200 dark:bg-gray-900 fixed top-0 shadow-md">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link to="/" className="flex items-center">
                     <img
@@ -65,7 +66,7 @@ const Navbar = () => {
                                 to="/wishlist"
                                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                             >
-                                Wishlist
+                                Wishlist({wishlist.length})
                             </NavLink>
                         </li>
                         <li>
